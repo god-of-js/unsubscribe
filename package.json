@@ -1,0 +1,27 @@
+{
+  "name": "unsubscribe-backend",
+  "version": "1.0.0",
+  "description": "An application for reminding users of subscriptions",
+  "main": "index.js",
+  "repository": "https://github.com/god-of-js/unsubscribe.git",
+  "author": "henryeze019@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.1.2"
+  },
+  "scripts": {
+    "watch": "nodemon"
+  },
+  "dependencies": {
+    "@types/express-rate-limit": "^5.1.0",
+    "@types/node": "^14.14.10",
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.0.1",
+    "helmet": "^4.2.0",
+    "lodash-ts": "^1.2.7",
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.1.1"
+  }
+}

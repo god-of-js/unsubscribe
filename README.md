@@ -7,6 +7,6 @@ Unsubscribe is a platform aimed at monitoring subscription and keeping track of 
 
 ### tech stack
 ```
-The front end is written in nuxt while the backend is written in node.
+The back-end is written in node-ts and express
 ```
 
