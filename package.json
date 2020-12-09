@@ -16,12 +16,18 @@
     "@types/express-rate-limit": "^5.1.0",
     "@types/node": "^14.14.10",
     "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-mongo-sanitize": "^2.0.1",
+    "express-rate-limit": "^5.2.3",
     "helmet": "^4.2.0",
+    "is-email": "^1.0.0",
     "lodash-ts": "^1.2.7",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.6",
     "nodemon": "^2.0.6",
+    "superstruct": "^0.12.1",
     "ts-node": "^9.1.1"
   }
 }

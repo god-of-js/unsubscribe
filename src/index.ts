@@ -8,9 +8,12 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
+const bodyParser = require("body-parser");
 
 
 // app using
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 //  secure app by using various http headers.
 app.use(helmet());
@@ -30,5 +33,7 @@ const limiter = rateLimit({
     max: 100,
     windowMs: 60 * 60 * 1000,
     status: 'fail',
-    message: 'Too many request form this IP, please try again in an hour!'
+    message: 'Too many request from this IP, please try again in an hour!'
 })
+app.use('/api', limiter);
+module.exports = app;
