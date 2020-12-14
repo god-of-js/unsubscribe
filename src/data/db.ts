@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+import * as mongoose from "mongoose";
 var mongoDb = 'mongodb://localhost/unsubscribe'
 mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true });
 module.exports = mongoose.connection

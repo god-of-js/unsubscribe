@@ -2,13 +2,13 @@
 const express = require('express');
 const app = express();
 
-
 // requires
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
 const bodyParser = require("body-parser");
+require('dotenv').config()
 
 
 // app using
@@ -36,4 +36,7 @@ const limiter = rateLimit({
     message: 'Too many request from this IP, please try again in an hour!'
 })
 app.use('/api', limiter);
+app.listen(3000, () => {
+    console.log("App is listening on port 3000");
+})
 module.exports = app;
