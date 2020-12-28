@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //  secure app by using various http headers.
 app.use(helmet());
-
+app.use("/api/v1", require("./routes/index"));
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
 // integrations
@@ -36,6 +36,7 @@ const limiter = rateLimit({
     message: 'Too many request from this IP, please try again in an hour!'
 })
 app.use('/api', limiter);
+app.use(cors())
 app.listen(3000, () => {
     console.log("App is listening on port 3000");
 })
