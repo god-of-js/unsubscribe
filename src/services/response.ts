@@ -19,4 +19,4 @@ class BaseResponse {
         })
     }
 }
-export default BaseResponse;
+export default (res: Response) => new BaseResponse(res)

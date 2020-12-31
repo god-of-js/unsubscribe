@@ -7,12 +7,12 @@ class email {
         try {
             const exists = User.findOne({email}).catch(err => {
                 console.log(err);
-                throw new BaseResponse(res).error(500, err.message, {})});
+                BaseResponse(res).error(500, err.message, {})});
             console.log(typeof exists);
-            if(exists) throw new BaseResponse(res).error(400, "Email exists in our database. Try signing in.", {});
+            if(exists) BaseResponse(res).error(400, "Email exists in our database. Try signing in.", {});
 
         } catch(err) {
-            throw new BaseResponse(res).error(500, err, {})
+            BaseResponse(res).error(500, err, {})
         }
 
     }
