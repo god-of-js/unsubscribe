@@ -1,5 +1,5 @@
 import * as mongoose from "mongoose";
-var mongoDb = 'mongodb://localhost/unsubscribe'
+var mongoDb = "mongodb://localhost/unsubscribe"
 mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true });
 module.exports = mongoose.connection
 mongoose.connection.on("error", console.error.bind(console, "connection error:"));
