@@ -1,6 +1,6 @@
 import { Response } from "express"
 class BaseResponse {
-    res !: Response
+    res !: Response;
     constructor(res: Response) {
         this.res = res;
     }
@@ -8,14 +8,13 @@ class BaseResponse {
         this.res.status(status).json({
             error: false,
             message,
-            data
+            data: data
         })
     }
-    error(status: number, message: string, err: object = {}) {
+    error(status: number, message: string) {
         this.res.status(status).json({
-            error: false,
-            message,
-            err
+            error: true,
+            message
         })
     }
 }

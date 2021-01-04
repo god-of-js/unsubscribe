@@ -7,4 +7,5 @@ const userSchema = new Schema({
     phone: {type: String, required: [true, "Provide Phone"], minlength: 10, unique: true},
     password: {type: String, required: [true, "Provide Password"]}
 }, {timestamps: true})
+
 export default mongoose.model<UserInterface>("User", userSchema);

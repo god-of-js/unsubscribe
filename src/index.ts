@@ -12,6 +12,7 @@ require("dotenv").config()
 
 // Imports
 import route from "./config/router";
+import "./data/db";
 // app using
 app.use(cors())
 app.use(bodyParser.json());
@@ -39,8 +40,8 @@ const limiter = rateLimit({
     message: 'Too many request from this IP, please try again in an hour!'
 })
 app.use("/api", limiter);
-
-app.listen(3000, () => {
-    console.log("App is listening on port 3000");
+const port = 3030;
+app.listen(port, () => {
+    console.log("App is listening on port " + port);
 })
 module.exports = app;
