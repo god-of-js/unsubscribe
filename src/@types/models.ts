@@ -5,9 +5,11 @@ export interface UserInterface extends Document {
     fullName?: string,
     phoneNumber?: number,
     password: string,
-    createdAt?: string
 }
 export interface ValidationResponse {
     error: boolean,
     message: string
+}
+export interface Token {
+    
 }
