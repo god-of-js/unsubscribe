@@ -4,17 +4,20 @@ class BaseResponse {
     constructor(res: Response) {
         this.res = res;
     }
-    success(status: number = 200, message: string, data: object) {
+    
+    success(status: number = 200, message: string, data: object, customHandle: Boolean = false) {
         this.res.status(status).json({
             error: false,
             message,
-            data: data
+            data: data,
+            customHandle
         })
     }
-    error(status: number, message: string) {
+    error(status: number, message: string, customHandle: Boolean = false) {
         this.res.status(status).json({
             error: true,
-            message
+            message,
+            customHandle
         })
     }
 }

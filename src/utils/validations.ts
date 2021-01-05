@@ -12,8 +12,8 @@ class Validations {
     static async userVerification(data: UserInterface) {
         let emailAndPassword = this.emailAndPassword(data);
         if(emailAndPassword.error) return emailAndPassword;
-        if(!data.phoneNumber) this.response.message = "Phone number was not provided";
-        if(!data.fullName) this.response.message = "Name was not provided";
+        if(!data.phone) this.response.message = "Phone number was not provided";
+        if(!data.name) this.response.message = "Name was not provided";
         if(this.response.message === "") this.response.error = false;
         return this.response;
     }

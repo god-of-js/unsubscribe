@@ -44,4 +44,5 @@ const port = 3030;
 app.listen(port, () => {
     console.log("App is listening on port " + port);
 })
+// console.log(require('crypto').randomBytes(256).toString('base64'))
 module.exports = app;
