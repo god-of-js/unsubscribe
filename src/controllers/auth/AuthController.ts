@@ -12,11 +12,10 @@ class AuthController {
         let { email, phone, password, name } = req.body;
         password = hasher(password, email).hash;
         const data = { email: email.toLowerCase(), phone, password, name, token: "" };
-        data.token = Tokeniser.createToken(data as UserInterface)
+        data.token = Tokeniser.createToken(data as UserInterface);
         try {
             const user = new UserSchema(data);
             await user.save();
-
             BaseResponse(res).success(200, "Account created successfully", user.toJSON());
         }
         catch (err) {
@@ -26,7 +25,7 @@ class AuthController {
     static async login(req: Request, res: Response) {
         const validations = await Validations.emailAndPassword(req.body);
         if (validations.error === true)  BaseResponse(res).error(400, validations.message);
-        const user = await UserSchema.findOne({email: req.body.email})
+        const user = await UserSchema.findOne({email: req.body.email});
         const data = { email: user?.email, phone: user?.phone, password: user?.password, name: user?.name, token: "" };
         if(user) user.token = Tokeniser.createToken(data as UserInterface);
         try {

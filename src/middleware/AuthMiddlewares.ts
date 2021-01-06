@@ -7,10 +7,10 @@ class AuthMiddlewares {
     static async userExists(req: Request, res: Response, next: NextFunction) {
         const email: string = req.body.email.toLowerCase();
         try {
-            const exists = await User.findOne({ email })
+            const emailExists = await User.findOne({ email })
             const phoneExists = await User.findOne({ phone: req.body.phone})
             if(phoneExists) BaseResponse(res).error(400, "Phone Number exists in our database. Try signing in.", false);
-            if(exists) BaseResponse(res).error(400, "Email exists in our database. Try signing in.", false);
+            if(emailExists) BaseResponse(res).error(400, "Email exists in our database. Try signing in.", false);
             else next();
         } catch(err) {
             BaseResponse(res).error(500, err, false)
