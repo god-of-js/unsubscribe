@@ -1,8 +1,9 @@
 import {Request, Response, NextFunction} from "express";
+import { createUnparsedSourceFile } from "typescript";
 import User from "../data/models/user";
 import BaseResponse from "../services/BaseResponse";
 import hasher from '../services/hasher';
-
+import Tokeniser from "../utils/tokeniser";
 class AuthMiddlewares {
     static async userExists(req: Request, res: Response, next: NextFunction) {
         const email: string = req.body.email.toLowerCase();
@@ -24,6 +25,13 @@ class AuthMiddlewares {
         if(user?.password !== hashedPassword)   BaseResponse(res).error(400, "Incorrect password. Try forgot password");
         else next();
     }
-    static async checkToken(){}
+    static async checkToken(req: Request, res: Response, next: NextFunction){
+        if(!req.header("authorization")) BaseResponse(res).error(400, "Authorization was not provided");
+        const token = req.header("authorization")?.split(" ")[1];
+        if(!token) BaseResponse(res).error(400, "Token was not provided");
+        const ifTokenValid = Tokeniser.verify(token as string)
+        if(!ifTokenValid) BaseResponse(res).error(400, "Invalid token was provided", true);
+        next();
+    }
 }
 export default AuthMiddlewares;

@@ -11,3 +11,11 @@ export interface ValidationResponse {
     error: boolean,
     message: string
 }
+export interface Subscription extends Document {
+    name: String,
+    url?: String,
+    amount: String,
+    activationDate: Date,
+    dueDate: Date,
+    subscriber: String
+}

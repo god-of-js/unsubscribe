@@ -6,7 +6,7 @@ const jwtOptions = {
     issuer: JWT_ISSUER
 }
 
-export default class JWT {
+export default class Tokeniser {
     static createToken(payload: UserInterface): string {
         const token = jwt.sign(payload,JWT_SECRET, jwtOptions);
         return token;
