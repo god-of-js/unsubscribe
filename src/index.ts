@@ -40,7 +40,7 @@ const limiter = rateLimit({
     message: 'Too many request from this IP, please try again in an hour!'
 })
 app.use("/api", limiter);
-const port = 3000;
+const port = 3030;
 app.listen(port, () => {
     console.log("App is listening on port " + port);
 })
