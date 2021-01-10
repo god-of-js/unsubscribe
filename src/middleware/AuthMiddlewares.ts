@@ -26,12 +26,9 @@ class AuthMiddlewares {
     }
     static async checkToken(req: Request, res: Response, next: NextFunction){
         if(!req.header("authorization")) return BaseResponse(res).error(400, "Authorization was not provided");
-        console.log(req.header("authorization"))
         const token = req.header("authorization")?.split(" ")[1];
-        console.log(token, "token")
         if(!token) return BaseResponse(res).error(400, "Token was not provided");
-        const ifTokenValid = Tokeniser.verify(token as string)
-        console.log(ifTokenValid)
+        const ifTokenValid = Tokeniser.verify(token as string);
         if(!ifTokenValid) return BaseResponse(res).error(400, "Invalid token was provided", true);
         next();
     }
