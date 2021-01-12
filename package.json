@@ -13,7 +13,7 @@
   },
   "scripts": {
     "watch": "nodemon",
-    "start": "npm run init"
+    "start": "sls offline start --port 3000"
   },
   "dependencies": {
     "@types/express-rate-limit": "^5.1.0",

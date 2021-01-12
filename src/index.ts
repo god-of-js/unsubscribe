@@ -1,7 +1,7 @@
 // express declarations
 import express, { Request, Response, NextFunction, Application } from 'express'
 const app: Application = express();
-const serverless = require('serverless-http');
+const http = require('serverless-http');
 // requires
 const cors = require("cors");
 const helmet = require("helmet");
@@ -44,5 +44,5 @@ const port = 3030;
 app.listen(port, () => {
     console.log("App is listening on port " + port);
 })
-// console.log(require('crypto').randomBytes(256).toString('base64'))
-module.exports = serverless(app);
+console.log(require('crypto').randomBytes(256).toString('base64'))
+module.exports.handler = app;

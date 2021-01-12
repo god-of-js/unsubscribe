@@ -28,8 +28,9 @@ class AuthMiddlewares {
         if(!req.header("authorization")) return BaseResponse(res).error(400, "Authorization was not provided");
         const token = req.header("authorization")?.split(" ")[1];
         if(!token) return BaseResponse(res).error(400, "Token was not provided");
-        const ifTokenValid = Tokeniser.verify(token as string);
-        if(!ifTokenValid) return BaseResponse(res).error(400, "Invalid token was provided", true);
+        const userToken = Tokeniser.verify(token as string);
+        if(!userToken) return BaseResponse(res).error(400, "Invalid token was provided", true);
+        // const user = await User.find({_id: userToken?.id})
         next();
     }
 }
