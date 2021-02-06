@@ -19,7 +19,7 @@ class AuthMiddlewares {
     static async emailAndPasswordMatch(req: Request, res: Response, next: NextFunction) {
         const {email, password} = req.body;
         const user = await User.findOne({email: email.toLowerCase()});
-        if(!user)  return BaseResponse(res).error(400, "Email does not exist in our database. Try signing in.");
+        if(!user)  return BaseResponse(res).error(400, "Email does not exist in our database. Try signing up.");
         const hashedPassword = hasher(password, email).hash
         if(user?.password !== hashedPassword)   return BaseResponse(res).error(400, "Incorrect password. Try forgot password");
         else next();

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Validations from "../../utils/Validations";
-import BaseResponse from "../../services/BaseResponse"
-import SubscriptionDb from "../../data/models/subscription"
+import BaseResponse from "../../services/BaseResponse";
+import SubscriptionDb from "../../data/models/subscription";
 export default class SubscriptionsController {
     static async addSubscription(req: Request, res: Response) {
         const validation = Validations.subscriptionValidation(req.body);
